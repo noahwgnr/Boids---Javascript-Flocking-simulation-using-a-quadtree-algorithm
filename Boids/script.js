@@ -58,6 +58,10 @@ function toggleProtectedRangeVisibility (){
     protectedRangeVisibility = document.getElementById("protectedRangeVisibility").checked 
 }
 
+function toggleMenu() {
+    document.querySelector('.menu').classList.toggle('active');
+}
+
 function spawnOneHundredBoids (){
     for(let i = 0; i <= 99; i++){
         boids.push(new createBoid())
@@ -236,6 +240,9 @@ class Circle {
 
 function startGame() {
     myGameArea.start();
+    if(canvasWidth > 1000){
+        toggleMenu()
+    }
     let quadtree = new Quadtree(new Rectangle(0, 0, canvasWidth, canvasHeight), 10)
     for(let i = 0; i <= numberOfBoidsAtStart; i++){
         boids.push(new createBoid())
@@ -263,10 +270,10 @@ let myGameArea = {
 
 //change canvas size based on browser size
 function fitCanvas() {
-    myGameArea.canvas.width = window.innerWidth -500;
+    myGameArea.canvas.width = window.innerWidth;
     myGameArea.canvas.height = window.innerHeight ;
     canvasHeight = window.innerHeight ;
-    canvasWidth = window.innerWidth -500;
+    canvasWidth = window.innerWidth;
 }
 
 function addBoidOnClick() {
@@ -279,7 +286,7 @@ function updateMousePosition(event) {
     mouseY = event.clientY - rect.top;
 }
 
-function createBoid(x = Math.floor(Math.random() * canvasWidth), y = Math.floor(Math.random() * canvasHeight), vx = Math.random() * (maxSpeed-2) - maxSpeed / 2, vy = Math.random() * (maxSpeed-2) - maxSpeed / 2, color = "grey") {
+function createBoid(x = Math.floor(Math.random() * canvasWidth), y = Math.floor(Math.random() * canvasHeight), vx = Math.random() * (maxSpeed-2) - maxSpeed / 2, vy = Math.random() * (maxSpeed-2) - maxSpeed / 2, color = "#EFE2BA") {
     this.size = 5; // Size of the triangle
     this.x = x;
     this.vx = vx;
@@ -311,7 +318,7 @@ function createBoid(x = Math.floor(Math.random() * canvasWidth), y = Math.floor(
         }
         if(protectedRangeVisibility){
             ctx.lineWidth = 0.5;
-            ctx.strokeStyle = "blue"
+            ctx.strokeStyle = "red"
             ctx.beginPath();
             ctx.arc(this.x, this.y, protectedRange, 0, 2 * Math.PI);
             ctx.stroke();       
