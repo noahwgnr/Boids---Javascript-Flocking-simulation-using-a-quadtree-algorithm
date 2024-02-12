@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boids</title>
+    <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="body" onload="startGame()">
+    <div class="simulation">
+        <script src="script.js"></script>
+    </div>
+    <div class="menu">
+        <div class="settings">
+            <h1>Settings</h1>
+            <h3>Click on canvas to spawn boids</h3>
+            <div class="inputField">
+                <input id="visibility" type="range" min="1" max="200" step="1"  value="50" oninput="changeVisibility()">
+                <label>Visibility</label>
+            </div>
+            <div class="inputField">
+                <input id="protectedRange" type="range" min="1" max="50" step="1"  value="10" oninput="changeProtectedRange()">
+                <label>Protected Range</label>
+            </div class="inputField">
+            <div class="inputField">
+                <input id="avoidfactor" type="range" min="0" max="100" step="1"  value="50" oninput="changeAvoidfactor()">
+                <label>Seperation Factor</label>
+            </div>
+            <div class="inputField">
+                <input id="matchingFactor" type="range" min="0" max="100" step="1"  value="50" oninput="changeMatchingFactor()">
+                <label>Alignement Factor</label>
+            </div> 
+            <div class="inputField">
+                <input id="centeringFactor" type="range" min="0" max="100" step="1"  value="50" oninput="changeCenteringFactor()">
+                <label>Cohesion Factor</label>
+            </div>     
+            <div class="inputField">
+                <input id="viewfieldVisibility" type="checkbox" oninput="toggleViewfieldVisibility()">
+                <label>Show view field</label>
+            </div>    
+            <div class="inputField">
+                <input id="protectedRangeVisibility" type="checkbox" oninput="toggleProtectedRangeVisibility()">
+                <label>Show protected range</label>
+            </div>  
+            <div class="inputField">
+                <input id="quadtreeVisibility" type="checkbox" oninput="toggleQuadtreeVisibility()">
+                <label>Show Quadtree</label>
+            </div> 
+            <div class="inputField">
+                <button onclick="spawnOneHundredBoids()"><p>Spawn 100 Boids</p></button>
+            </div> 
+            <h3>Number of boids: <span id="numberOfBoids"></span></h3> 
+            <div class="tip">
+                <p>Tip: Zoom out to get a larger canvas</p>
+            </div> 
+        </div>
+        <div class="info">
+            <h1>About this simulation</h1>
+            <p>Flocking boid simulation models the collective behavior of birds, fish, or other animals. Each "boid" follows three simple rules:</p>
+                <p><h4>Separation:</h4> Boids avoid collisions by steering away from nearby boids.</p>
+                <p><h4>Alignement:</h4> Boids match the average velocity of nearby boids.</p>
+                <p><h4>Cohesion:</h4> Boids move towards the center of mass of nearby boids.</p>
+            <p>These rules were developed by Craig Reynolds in 1986 and result in emergent behaviors like flocking or schooling, where individual agents interact locally to create cohesive group motion. <a href="https://en.wikipedia.org/wiki/Boids" target="_blank">More</a></p>
+            <br>
+            <p><h4>The quadtree algorithm</h4> efficiently divides a 2D space into smaller regions, reducing the number of comparisons needed for collision detection by organizing objects into hierarchical structures. It's particularly useful in scenarios with many objects, such as flocking simulations or games, where traditional collision detection methods would be computationally expensive. <a href="https://en.wikipedia.org/wiki/Quadtree" target="_blank">More</a></p>
+        </div>
+    </div>
+</body>
+</html>

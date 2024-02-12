@@ -1,0 +1,100 @@
+body{
+    text-align: center;
+    font-family: "Poppins";
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: flex-start;
+    align-items: left;
+    height: 100vh;
+    flex-direction: row;
+
+    position: fixed;
+    width: 100%;
+}
+
+canvas {
+    border: 1px solid #d3d3d3;
+    background-color: #f1f1f1;
+}
+
+.menu {
+    overflow-y: scroll;
+    text-align: left;
+    margin: 30px;
+}
+
+.menu h1{
+    text-align: center;
+}
+
+.info{
+    margin-top: 75px;
+    margin-right: 15px;
+    text-align: center;
+}
+
+.info p{
+    text-align: left;
+}
+
+h4 {
+    display: inline; 
+    text-align: left;
+}
+
+.inputField {
+    margin: 20px 0px;
+}
+
+button {
+    padding: 0px 10px;
+    border-radius: 15px;
+    color: white;
+    background-color: #3500D3;
+}
+
+a {
+    color: #c6b7fe;
+}
+
+input[type=range] {
+    background-color: black;
+    -webkit-appearance: none;
+    margin: 10px 0;
+  }
+
+  input[type=range]::-webkit-slider-runnable-track {
+    height: 11px;
+    background: #3500D3;
+    border-radius: 5px;
+  }
+  
+  
+  input[type=range]::-webkit-slider-thumb {
+    margin-top: -3.5px;
+    height: 17.5px;
+    width: 17.5px;
+    border-radius: 10px;
+    background: #FFFFFF;
+    -webkit-appearance: none;
+  }
+
+  input[type=range]::-moz-range-track {
+    height: 11px;
+    background: #3500D3;
+    border-radius: 5px;
+  }
+  input[type=range]::-moz-range-thumb {
+    border-radius: 20px;
+    background: #FFFFFF;
+  }
+
+  .tip {
+    font-style: italic;
+  }
+
+  
+  
+  
+  
